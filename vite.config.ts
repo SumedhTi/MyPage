@@ -14,5 +14,6 @@ export default defineConfig(({ mode }) => ({
   },
   build:{
     outDir: 'build',
-  }
+  },
+  base: "/MyPage/"
 }));

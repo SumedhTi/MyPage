@@ -3,6 +3,10 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ExternalLink, Github } from 'lucide-react'
+import pims_img  from "@/assets/5G.png";
+import ocs_img from "@/assets/side_img.png";
+import lol_img from "@/assets/diff.png";
+import game_img from "@/assets/ship.png";
 
 const projects = [
   {
@@ -19,7 +23,7 @@ const projects = [
     title: 'Policy Insights and Managenet Servises(PIMS)',
     company:"Jio Platforms Limited",
     description: 'A full-stack Managment Dashboard solution with React, Java, and MySQL. Features include managing telecomunication secervies and rule engine across India.',
-    image: "/src/assets/5G.png",
+    image: pims_img,
     tech: ['React', 'Java', 'Jetty Server', 'MySQL', 'MUI', 'Docker'],
     github: null,
     live: null,
@@ -29,7 +33,7 @@ const projects = [
     title: 'Online Charging Service (OCS) Insights',
     company:"Jio Platforms Limited",
     description: 'A full-stack Charging Dashboard solution with React, Java, and MySQL. Used to manage and process charges for services used by subscribers across India.',
-    image: "/src/assets/side_img.png",
+    image: ocs_img,
     tech: ['React', 'Java', 'Jetty Server', 'MySQL', 'MUI', 'Docker'],
     github: null,
     live: null,
@@ -37,9 +41,9 @@ const projects = [
   },
   {
     title: 'Low Light Image Enhance using Deep Learning',
-    company:null,
+    company: null,
     description: 'A simple DL model which takes input of a low light image and enhanses it by brightning the overall image without noise and losses.',
-    image: '/src/assets/diff.png',
+    image: lol_img,
     tech: ['Python', 'TenserFlow'],
     github: "https://github.com/NiceNewton/lol",
     live: null,
@@ -59,7 +63,7 @@ const projects = [
     title: 'BattleShip Game',
     company: null,
     description: 'A famous 2 player game "BattleShip" developed using pygame and played over newtwork using soket connection.',
-    image: '/src/assets/ship.png',
+    image: game_img,
     tech: ['Python', 'PyGame', 'Socket'],
     github: "https://github.com/SumedhTi/battleship_python",
     live: null,
@@ -67,7 +71,7 @@ const projects = [
   },
   {
     title: 'Poems website',
-    company:"Jio Platforms Limited",
+    company: null,
     description: 'A simple webpage to showcase all the poems and stories written by my mother.',
     image: "https://i.ibb.co/phLZ2YX/IMG-20241008-WA0013.jpg",
     tech: ['React', 'MongoDB'],
