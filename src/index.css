@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark Portfolio Theme */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 5%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Purple/Neon Color Palette */
+    --primary: 270 91% 65%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 270 91% 75%;
+
+    --secondary: 240 10% 8%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 11%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 310 100% 69%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Glass Morphism Colors */
+    --glass: 240 10% 15% / 0.1;
+    --glass-border: 0 0% 100% / 0.1;
+    
+    /* Neon Colors */
+    --neon-purple: 270 91% 65%;
+    --neon-pink: 310 100% 69%;
+    --neon-cyan: 180 100% 70%;
+    --neon-green: 120 100% 70%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 8%;
+    --ring: 270 91% 65%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 91% 65%), hsl(310 100% 69%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 10% 8%), hsl(240 10% 15%));
+    --gradient-glass: linear-gradient(135deg, hsl(240 10% 15% / 0.1), hsl(0 0% 100% / 0.05));
+
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(270 91% 65% / 0.3);
+    --shadow-neon: 0 0 20px hsl(310 100% 69% / 0.4);
+    --shadow-glass: 0 8px 32px hsl(240 10% 3% / 0.4);
+
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 10% 8%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 15%;
+    --sidebar-ring: 270 91% 65%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 91% 65%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 10% 8%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 11%;
+    --muted-foreground: 240 5% 64%;
+    --accent: 310 100% 69%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 15%;
+    --input: 240 10% 8%;
+    --ring: 270 91% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: radial-gradient(ellipse at top, hsl(270 91% 65% / 0.1), transparent 50%),
+                radial-gradient(ellipse at bottom, hsl(310 100% 69% / 0.1), transparent 50%),
+                hsl(var(--background));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Glass Morphism Utilities */
+  .glass {
+    background: linear-gradient(135deg, hsl(240 10% 15% / 0.1), hsl(0 0% 100% / 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, hsl(240 10% 8% / 0.8), hsl(240 10% 15% / 0.3));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+  }
+
+  /* Glow Effects */
+  .glow-purple {
+    box-shadow: 0 0 30px hsl(270 91% 65% / 0.3);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 20px hsl(310 100% 69% / 0.4);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(270 91% 65% / 0.5);
+  }
+
+  /* Neon Border Animation */
+  .neon-border {
+    position: relative;
+    border: 1px solid hsl(270 91% 65% / 0.3);
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(270 91% 65%), hsl(310 100% 69%));
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .neon-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Advanced Effects */
+  .tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.3s ease;
+  }
+
+  .tilt-card:hover {
+    transform: rotateX(5deg) rotateY(10deg) scale(1.02);
+  }
+
+  .glitch {
+    position: relative;
+    animation: glitch 0.3s;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-1 0.3s;
+    color: hsl(var(--neon-cyan));
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch-2 0.3s;
+    color: hsl(var(--neon-pink));
+    z-index: -2;
+  }
+
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+
+  @keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    10% { transform: translate(-2px, -2px); }
+    20% { transform: translate(2px, 2px); }
+    30% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+  }
+
+  @keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    10% { transform: translate(2px, 2px); }
+    20% { transform: translate(-2px, -2px); }
+    30% { transform: translate(2px, -2px); }
+    40% { transform: translate(-2px, 2px); }
+  }
+
+  /* Enhanced hover effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.3);
+  }
+
+  .hover-glow {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: inherit;
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+
+  .hover-glow:hover::before {
+    opacity: 0.7;
+  }
+
+  /* Morphing button effect */
+  .morph-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .morph-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--accent)));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    z-index: -1;
+  }
+
+  .morph-button:hover::before {
+    width: 300%;
+    height: 300%;
+  }
+
+  /* Liquid loading effect */
+  .liquid-loading {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.4), transparent);
+    animation: liquid-slide 1.5s infinite;
+  }
+
+  @keyframes liquid-slide {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+}
